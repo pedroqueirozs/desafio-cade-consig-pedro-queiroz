@@ -30,10 +30,8 @@ export default function LoginPage() {
     try {
       const response = await api.post("/login", data);
 
-      const { token } = response.data;
-      console.log("Token recebido:", token);
-
-      localStorage.setItem("token", token);
+      const { access_token } = response.data;
+      localStorage.setItem("token", access_token);
 
       router.push("/contracts");
     } catch (error) {
