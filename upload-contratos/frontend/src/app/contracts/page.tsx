@@ -130,6 +130,7 @@ export default function ContractsPage() {
 
           <div className="flex gap-2 mt-4">
             <button
+              className="bg-black text-white px-2 py-1 rounded-md transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               disabled={data.page <= 1}
               onClick={() => setPage(String(data.page - 1))}
             >
@@ -137,6 +138,7 @@ export default function ContractsPage() {
             </button>
 
             <button
+              className="bg-black text-white px-2 py-1 rounded-md transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               disabled={data.page >= data.totalPages}
               onClick={() => setPage(String(data.page + 1))}
             >
