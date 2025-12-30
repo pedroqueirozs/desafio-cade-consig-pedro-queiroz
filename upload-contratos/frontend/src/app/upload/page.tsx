@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -9,7 +10,8 @@ export default function UploadPage() {
     e.preventDefault();
 
     if (!file) {
-      alert("Selecione um arquivo CSV");
+      toast.error("Nenhum arquivo selecionado");
+
       return;
     }
 
@@ -33,11 +35,14 @@ export default function UploadPage() {
       }
 
       const data = await response.json();
-      alert(
-        `Upload realizado com sucesso. ${data.inserted} contratos inseridos.`
-      );
+
+      toast.success("Upload realizado com sucesso", {
+        description: `${data.inserted} contratos inseridos.`,
+      });
     } catch (error) {
-      alert("Erro no upload do CSV");
+      toast.error("Erro no upload", {
+        description: "Não foi possível enviar o arquivo CSV.",
+      });
     }
   }
 

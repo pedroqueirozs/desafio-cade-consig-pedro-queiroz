@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { QueryProvider } from "@/providers/query-provider";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Sistema de Contratos - CadeConsig",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
+        <Toaster richColors position="top-right" />
         <QueryProvider>
           <NuqsAdapter>{children}</NuqsAdapter>
         </QueryProvider>
