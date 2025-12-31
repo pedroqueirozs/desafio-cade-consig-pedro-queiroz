@@ -5,8 +5,15 @@ type GetContractsParams = {
   tipo_plano?: string;
 };
 
+function getTokenFromCookie() {
+  return document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("token="))
+    ?.split("=")[1];
+}
+
 export async function getContracts(params: GetContractsParams) {
-  const token = localStorage.getItem("token");
+  const token = getTokenFromCookie();
 
   const searchParams = new URLSearchParams();
 
@@ -32,7 +39,7 @@ export async function getContracts(params: GetContractsParams) {
       },
     }
   );
-
+  console.log(response);
   if (!response.ok) {
     throw new Error("Erro ao buscar contratos");
   }
