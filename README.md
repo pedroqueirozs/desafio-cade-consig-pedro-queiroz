@@ -1,147 +1,110 @@
-# Desafio Cadeconsig - Desenvolvedor Full Stack
+# Solução — Desafio CadeConsig
 
-Este desafio tem como objetivo avaliar habilidades de desenvolvimento full stack, incluindo setup de backend, integração com API, autenticação e construção de um frontend funcional.
+Este repositório contém a implementação da minha solução para o **Desafio CadeConsig**.
 
-O candidato deverá configurar e executar a API localmente e desenvolver um frontend básico que consuma os endpoints fornecidos.
+A documentação oficial do desafio foi mantida separadamente para evitar poluição deste README e manter o foco em **como executar o projeto** e **o que foi implementado**.
 
----
-
-# 1º ponto de avaliação
-
-Configurar e executar o backend localmente apenas por meio da análise dos arquivos do projeto.
-Nenhuma documentação adicional será fornecida intencionalmente.
-
-A ausência de documentação faz parte do desafio e tem como objetivo avaliar a capacidade do candidato de compreender um projeto existente, identificar dependências, variáveis de ambiente, fluxo de execução e regras de negócio a partir do código-fonte.
-
-**O candidato terá acesso apenas:**
-
-- ao código do projeto;
-- às rotas disponíveis na API;
-- aos filtros e comportamentos expostos pelos endpoints.
-
-**Serão avaliadas habilidades como:**
-
-- leitura e interpretação de código;
-- autonomia técnica;
-- capacidade de depuração;
-- entendimento de arquitetura e padrões utilizados;
-- tomada de decisão diante de cenários incompletos ou ambíguos.
-
-## Backend
-
-- NestJS
-- PostgreSQL
-- Prisma ORM
-- JWT Authentication
-- Upload de arquivos CSV
-
-## Endpoints
-
-### POST /login
-
-Envio um json com as chaves `usuario` e `senha` e receba um token JWT para as demais requests
-
-### POST /contratos/upload
-
-Upload de CSV (multipart/form-data, campo `file`) com ate 100 linhas. O modelo do arquivo para upload
-foi deixado na raiz do projeto com o nome contratos_100.csv.
-
-### GET /contratos
-
-Listagem com filtros e paginação. Todos os campos podem ser filtrados.
-
-Query params aceitos:
-
-- `id_contrato`
-- `nome_cliente`
-- `email_cliente`
-- `tipo_plano` (Basico | Pro | Enterprise)
-- `valor_mensal`
-- `status` (Ativo | Inativo)
-- `data_inicio` (ISO 8601)
-- `page` (default 1)
-- `limit` (default 20, max 100)
+📌 **Repositório do desafio original:**  
+ https://github.com/cadeconsig/desafio-cadeconsig?tab=readme-ov-file
 
 ---
 
-# 2º ponto de avaliação
+## Visão Geral
 
-O candidato deverá implementar um frontend utilizando Next.js 15 (React), com foco em boas práticas, qualidade de código e uso de recursos modernos do ecossistema React/Next
+A solução foi desenvolvida como uma aplicação **full stack**, contemplando autenticação, upload de arquivos CSV, listagem de contratos com filtros e paginação, além de uma interface simples e funcional.
 
-## Implementação do Frontend — Next.js 15
-
-### Telas obrigatórias
-
-**Tela de Login**
-
-- Autenticação do usuário via API.
-- Armazenamento adequado do token JWT.
-- Envio do token em todas as requisições autenticadas através do header.
-
-**Tela de Upload de CSV**
-
-- Upload de arquivo CSV para cadastro de contratos utilizando o endpoint correspondente.
-- Exibição de feedback visual ao usuário:
-  - Toast de sucesso em caso de upload bem-sucedido.
-  - Toast de erro em caso de falha.
-  - Exibição da quantidade de registros inseridos quando aplicável.
-
-**Tela de Listagem de Contratos**
-
-- Implementação da listagem de contratos consumindo a API.
-- Paginação de dados.
-- Filtro de dados.
-- Tratamento adequado dos seguintes estados:
-  - Carregamento
-  - Lista vazia
-  - Erro de requisição
-
-### Stack obrigatória (Next/React)
-
-O frontend deve ser desenvolvido obrigatoriamente com:
-
-- Next.js 15 + App Router
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- React Hook Form + Zod (validação)
-- React Query (TanStack Query) para cache, loading states e revalidação
-- Nuqs para lidar com url params
-
-### Expectativas técnicas
-
-Serão avaliados os seguintes aspectos técnicos:
-
-- Organização de pastas e componentes seguindo boas práticas do App Router
-- Implementação de formulários com validação completa utilizando Zod e React Hook Form
-- Atenção à experiência do usuário (UX):
-  - Estados de loading
-  - Mensagens de erro claras
-  - Feedbacks de sucesso
-  - Botões desabilitados durante submissões
-- Tipagem correta e consistente:
-  - Autenticação
-  - Contratos
-  - Paginação
-  - Filtros
-- Uso consistente do design system (Shadcn UI + Tailwind CSS)
+O projeto está dividido em **backend** e **frontend**, seguindo boas práticas de organização e separação de responsabilidades.
 
 ---
 
-# 3º ponto de avaliação
+### Telas implementadas
 
-O candidato deverá organizar e entregar o projeto seguindo os requisitos abaixo, garantindo rastreabilidade e boas práticas de versionamento.
+## Login
 
-## Repositório e estrutura obrigatória
+<p align="center">
+  <img alt="projeto DevLinks" src="../desafio-cadeconsig//upload-contratos//frontend/public/login.png" width="70%">
+</p>
 
-- Criar um repositório público no GitHub com o nome: `desafio-cade-consig-[nome-do-candidato]`
-- Dentro do repositório deve conter:
-  - Uma pasta chamada `upload-contratos` com o projeto frontend
-  - Currículo atualizado do candidato
+## Lista e Contratos
 
-É obrigatório commits consistentes e seguindo o padrão [Conventional Commits]("https://www.conventionalcommits.org/en/v1.0.0/").
+<p align="center">
+  <img alt="projeto DevLinks" src="../desafio-cadeconsig//upload-contratos//frontend/public/contracts.png" width="70%">
+</p>
 
-## Envio do projeto
+## Tela para upload de contratos
 
-- Enviar o link do repositório público por e-mail para: desenvolvimento@cadeconsig.com.br
-- Assunto do e-mail (assunto): Desafio Cadê Consig - Nome do Candidato
+<p align="center">
+  <img alt="projeto DevLinks" src="../desafio-cadeconsig//upload-contratos//frontend/public/upload.png" width="70%">
+</p>
+
+---
+
+## Estrutura do repositório solicitada no desafio.
+
+```bash
+.
+├── backend
+├── upload-contratos / frontend
+├── Curriculo-Pedro-Queiroz.pdf
+└── README.md
+```
+
+## Como Executar o Projeto Localmente
+
+```bash
+cd backend
+npm install
+```
+
+## Crie um arquivo .env na raiz do backend com o seguinte conteúdo:
+
+```bash
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/cadeconsig"
+JWT_SECRET="supersecret"
+
+```
+
+## Suba o banco de dados com Docker:
+
+```bash
+docker-compose up -d
+```
+
+## Execute as migrations e o seed do banco:
+
+```bash
+npx prisma migrate dev
+npx prisma db seed
+
+```
+
+## Inicie o servidor:
+
+```bash
+npm run start:dev
+
+O backend ficará disponível em: http://localhost:3000
+```
+
+## Usuário padrão para login:
+
+```bash
+Usuário: admin
+Senha: admin123
+```
+
+## Frontend
+
+```bash
+cd upload-contratos
+npm install
+npm run dev
+```
+
+## O frontend ficará disponível em:
+
+```bash
+http://localhost:3001
+```
+
+## Ao acessar a aplicação, o usuário será direcionado para a tela de login.
