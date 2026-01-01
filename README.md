@@ -22,19 +22,19 @@ O projeto está dividido em **backend** e **frontend**, seguindo boas práticas 
 ## Login
 
 <p align="center">
-  <img alt="Pagina de login" src="../desafio-cadeconsig//upload-contratos/frontend/public/login.png" width="70%">
+<img alt="Pagina de login" src="upload-contratos/public/login.png" width="70%">
 </p>
 
 ## Lista e Contratos
 
 <p align="center">
-  <img alt="Pagina de listagem de contratos" src="../desafio-cadeconsig//upload-contratos/frontend/public/contracts.png" width="70%">
+ <img alt="Pagina de listagem de contratos" src="upload-contratos/public/contracts.png" width="70%">
 </p>
 
 ## Tela para upload de contratos
 
 <p align="center">
-  <img alt="Pagina de uploads" src="../desafio-cadeconsig//upload-contratos/frontend/public/upload.png" width="70%">
+ <img alt="Pagina de uploads" src="upload-contratos/public/upload.png" width="70%">
 </p>
 
 ---
